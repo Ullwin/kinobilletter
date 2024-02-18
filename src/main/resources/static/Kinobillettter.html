@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Bestilling av kinobilletter</title>
+    <style>
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: inline-block;
+            width: 60px;
+            margin-right: 10px;
+        }
+        .feil-melding {
+            color: red;
+        }
+        .blank-linje {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        #billettListe {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<h1>Bestilling av kinobilletter</h1>
+
+
+<!-- BillettSkjema -->
+<form id="billettForm">
+    <!-- Film -->
+    <div class="form-group">
+        <label for="film">Film:</label>
+        <select id="film" required>
+            <option value="">Velg en film</option>
+            <option value="The Shawshank Redemption">The Shawshank Redemption</option>
+            <option value="The Godfather">The Godfather</option>
+            <option value="The Dark Knight">The Dark Knight</option>
+        </select>
+        <!-- Feilmelding -->
+        <span id="filmFeil" class="feil-melding"></span>
+    </div>
+    <div class="blank-linje"></div>
+    <!-- Antall -->
+    <div class="form-group">
+        <label for="antall">Antall:</label>
+        <input type="text" id="antall" style="width: 25px;" required>
+        <!-- Feilmelding -->
+        <span id="antallFeil" class="feil-melding"></span>
+    </div>
+
+    <div class="blank-linje"></div>
+
+    <!-- Fornavn -->
+    <div class="form-group">
+        <label for="fornavn">Fornavn:</label>
+        <input type="text" id="fornavn" required>
+        <!-- Feilmelding -->
+        <span id="fornavnFeil" class="feil-melding"></span>
+    </div>
+
+    <!-- Etternavn -->
+    <div class="form-group">
+        <label for="etternavn">Etternavn:</label>
+        <input type="text" id="etternavn" required>
+        <!-- Feilmelding -->
+        <span id="etternavnFeil" class="feil-melding"></span>
+    </div>
+
+    <!-- Telefonnummer -->
+    <div class="form-group">
+        <label for="telefon">Telefonnr:</label>
+        <input type="tel" id="telefon" required>
+        <!-- Feilmelding -->
+        <span id="telefonFeil" class="feil-melding"></span>
+    </div>
+
+    <!-- Epost -->
+    <div class="form-group">
+        <label for="epost">E-post:</label>
+        <input type="email" id="epost" required>
+        <!-- Feilmelding -->
+        <span id="epostFeil" class="feil-melding"></span>
+    </div>
+
+    <button type="button" onclick="kjøpBillett(); visBillettListe();">Kjøp billett</button>
+</form>
+
+<!-- Liste over kjøpte billetter -->
+<h2>Alle billetter</h2>
+<table id="billettListe">
+    <thead>
+    <tr>
+        <th>Film</th>
+        <th>Antall</th>
+        <th>Fornavn</th>
+        <th>Etternavn</th>
+        <th>Telefon</th>
+        <th>E-post</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<!-- Knapp for sletting -->
+<button id="slettAlle" onclick="slettAlleBilletter()">Slett alle billetter</button>
+
+
+<script src="kinobilletter.js"></script>
+</body>
+</html>
